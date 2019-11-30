@@ -28,3 +28,43 @@ article = {
 
 #this is used to insert 
 db.articles.insert(article)
+
+#queries
+#1-- know which comments were made on article 'a beginning' and by whom
+#create query
+let q1 = {
+    title: 'a beginning'    
+}
+#create projection 
+db.articles.find(q1, {"Comments.username": 1, "Comments.comment_content": 1})
+
+#2-- which staff members were working on article 'sample'
+let q2 = {
+    title: 'sample'
+}
+
+let p2 = {
+    written_by: 1
+}
+
+db.articles.find(q2, p2);
+
+#3-- how many articles has each staff member worked on?
+
+
+
+#4-- which staff members have worked on more than one article with maximum number of article writting staff on top
+
+
+#5-- which articles were written in 2014
+let q5 = {
+    date_published: new Date("2014-10-01T00:00:00.000Z")}
+}
+
+q5 = {date_published: new Date("2014-05-13T00:00:00.000+00:00")}
+
+let p5 = {
+    title: 1,
+    written_by: 1
+}
+
