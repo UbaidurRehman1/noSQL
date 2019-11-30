@@ -1,0 +1,30 @@
+#create database
+use db_m_1
+
+#create collection (all tables in database)
+db.createCollection('articles')
+
+#this is your article in noSQL 
+#change this according to your info
+article = {
+    _id: '1',
+    title: 'article1',
+    date_published: ISODate("2014-09-17T23:25:56.314Z"),
+    written_by: [{
+        _id: '1',
+        name: 'Osama'
+    }],
+    comments: [{
+        _id: '1',
+        content: 'This is very good article',
+        date: ISODate("2014-09-17T23:25:56.314Z"),
+        comment_by: {
+            _id: '1',
+            name: 'Osama'
+            password: 'pass'
+        }
+    }]
+}
+
+#this is used to insert 
+db.articles.insert(article)
